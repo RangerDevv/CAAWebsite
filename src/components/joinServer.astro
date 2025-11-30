@@ -1,12 +1,306 @@
-<div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">Hello there</h1>
-      <p class="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+<div class="cta-section w-full">
+  <div class="cta-background"></div>
+  <div class="cta-content">
+    <div class="cta-container">
+      <div class="floating-emojis">
+        <span class="emoji emoji-1">🎉</span>
+        <span class="emoji emoji-2">✨</span>
+        <span class="emoji emoji-3">🌟</span>
+        <span class="emoji emoji-4">💫</span>
+        <span class="emoji emoji-5">🎊</span>
+        <span class="emoji emoji-6">⭐</span>
+      </div>
+      
+      <h1 class="cta-title">Ready to Join the Family?</h1>
+      <p class="cta-subtitle">
+        Join thousands of Central Asian Americans connecting, sharing, and building lasting friendships every day
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      
+      <div class="stats-container">
+        <div class="stat-box">
+          <div class="stat-number" data-target="2500">0</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Daily Conversations</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="stat-label">Online Support</div>
+        </div>
+      </div>
+      
+      <a href="https://discord.gg/your-invite-link" target="_blank" rel="noopener noreferrer" class="cta-button">
+        <span class="button-content">
+          <svg class="discord-logo" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <span class="button-text">Join Our Discord Server</span>
+          <span class="button-arrow">→</span>
+        </span>
+        <span class="button-shine"></span>
+      </a>
+      
+      <p class="cta-note">✓ Free forever • ✓ No sign-up fees • ✓ Instant access</p>
     </div>
   </div>
 </div>
+
+<script>
+  // Animate counter numbers
+  function animateCounter(element: HTMLElement) {
+    const target = parseInt(element.getAttribute('data-target') || '0');
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target.toString() + (element.parentElement?.querySelector('.stat-label')?.textContent?.includes('Support') ? '/7' : '+');
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current).toString();
+      }
+    }, 16);
+  }
+  
+  // Intersection Observer for counters
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => animateCounter(counter as HTMLElement));
+        observer.disconnect();
+      }
+    });
+  });
+  
+  const statsContainer = document.querySelector('.stats-container');
+  if (statsContainer) {
+    observer.observe(statsContainer);
+  }
+</script>
+
+<style>
+  .cta-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
+  }
+  
+  .cta-background {
+    display: none;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    width: 100%;
+  }
+  
+  .cta-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  
+  .floating-emojis {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .emoji {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .emoji-1 { top: 10%; left: 10%; animation-delay: 0s; }
+  .emoji-2 { top: 20%; right: 15%; animation-delay: 1s; }
+  .emoji-3 { bottom: 30%; left: 8%; animation-delay: 2s; }
+  .emoji-4 { top: 60%; right: 10%; animation-delay: 3s; }
+  .emoji-5 { bottom: 15%; right: 20%; animation-delay: 4s; }
+  .emoji-6 { top: 40%; left: 5%; animation-delay: 5s; }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-30px) rotate(5deg);
+    }
+    66% {
+      transform: translateY(-15px) rotate(-5deg);
+    }
+  }
+  
+  .cta-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #2c1810;
+    margin-bottom: 1.5rem;
+    animation: titleGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes titleGlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+  
+  .cta-subtitle {
+    font-size: 1.5rem;
+    color: rgba(44, 24, 16, 0.9);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+  
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stat-box {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-box:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(88, 101, 242, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  }
+  
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #5865F2;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    color: rgba(44, 24, 16, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  
+  .cta-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+    border: none;
+    border-radius: 1rem;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+    margin-bottom: 2rem;
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .button-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(88, 101, 242, 0.5),
+                0 0 40px rgba(88, 101, 242, 0.3);
+  }
+  
+  .cta-button:hover .button-shine {
+    left: 100%;
+  }
+  
+  .cta-button:hover .discord-logo {
+    animation: wiggle 0.5s ease-in-out;
+  }
+  
+  .cta-button:hover .button-arrow {
+    transform: translateX(10px);
+  }
+  
+  .discord-logo {
+    transition: transform 0.3s ease;
+  }
+  
+  .button-arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+  }
+  
+  .cta-button:active {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .cta-note {
+    color: rgba(44, 24, 16, 0.7);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    .cta-title {
+      font-size: 2.5rem;
+    }
+    
+    .cta-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .cta-button {
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .emoji {
+      font-size: 2rem;
+    }
+  }
+</style>
