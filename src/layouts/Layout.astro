@@ -25,7 +25,7 @@ const socialLinks = [
 ---
 
 <!doctype html>
-<html lang="en" data-theme="retro">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,7 +77,7 @@ const socialLinks = [
 			</div>
 			<div class="drawer-side">
 				<label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-				<ul class="menu bg-base-200 min-h-full w-80 p-6 gap-2">
+				<ul class="menu bg-base-300/40 backdrop-blur supports-backdrop-filter:bg-base-300/30 border border-base-300/30 min-h-full w-80 p-6 gap-2 rounded-r-xl shadow-lg">
 					<li class="mb-4">
 						<a href="#home" class="flex items-center gap-3">
 							<img src={logo.src} alt="Central Asian American Community Logo" class="h-14 w-auto rounded" loading="lazy" />
@@ -175,16 +175,53 @@ const socialLinks = [
 </html>
 
 <style>
+	/* Fonts */
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Arima:wght@300;400;600;700&display=swap');
 
-	@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Belanosima:wght@400;600;700&family=Inika:wght@400;700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Noto+Sans+Gujarati:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+	/* Base dark palette */
+	:root {
+		--caa-bg: #0f1115;
+		--caa-surface: #1b232c;
+		--caa-surface-alt: #242f3a;
+		--caa-border: #2f3b47;
+		--caa-text: #e5e7eb;
+		--caa-muted: #94a3b8;
+		--caa-accent: #5865F2;
+		--caa-accent-hover: #6d7bff;
+	}
 
-	html,
-	body {
+	html, body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #BCA371;
-		font-family: 'Arima', sans-serif;
+		background: var(--caa-bg);
+		color: var(--caa-text);
+		font-family: 'Inter', 'Arima', system-ui, sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* Improve menu look when dark */
+	.menu li > a {
+		border-radius: 8px;
+		font-weight: 500;
+	}
+	.menu li > a:hover {
+		background: var(--caa-surface-alt);
+	}
+	.menu-title {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: .08em;
+		color: var(--caa-muted);
+		font-weight: 600;
+	}
+	.divider {
+		--tw-border-opacity: 1;
+		border-color: var(--caa-border);
+	}
+	/* Mobile toggle subtle shadow */
+	label[for="my-drawer-3"] {
+		border: 1px solid var(--caa-border);
 	}
 
 	.cursor-dot,
