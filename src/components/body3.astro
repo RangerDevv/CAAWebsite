@@ -1,10 +1,109 @@
-<span class="text-rotate text-7xl mx-auto w-full">
-  <span class="justify-items-center">
-    <span>DESIGN</span>
-    <span>DEVELOP</span>
-    <span>DEPLOY</span>
-    <span>SCALE</span>
-    <span>MAINTAIN</span>
-    <span>REPEAT</span>
-  </span>
-</span>
+<div class="community-features- bg-base-200 section py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-6xl font-bold text-center mb-16">What We Offer</h2>
+    
+    <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+      <!-- Feature Card 1 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">🎭</div>
+        <h3 class="text-2xl font-bold mb-3">Cultural Connection</h3>
+        <p class="text-lg opacity-80">Share traditions, celebrate holidays, and connect with fellow Central Asian Americans</p>
+      </div>
+
+      <!-- Feature Card 2 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">💬</div>
+        <h3 class="text-2xl font-bold mb-3">Active Community</h3>
+        <p class="text-lg opacity-80">Engage in lively discussions, voice chats, and make lasting friendships</p>
+      </div>
+
+      <!-- Feature Card 3 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">📸</div>
+        <h3 class="text-2xl font-bold mb-3">Share Memories</h3>
+        <p class="text-lg opacity-80">Post photos, stories, and experiences from your daily life and adventures</p>
+      </div>
+
+      <!-- Feature Card 4 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">🎮</div>
+        <h3 class="text-2xl font-bold mb-3">Gaming & Events</h3>
+        <p class="text-lg opacity-80">Join game nights, movie watches, and community events together</p>
+      </div>
+
+      <!-- Feature Card 5 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">🍜</div>
+        <h3 class="text-2xl font-bold mb-3">Food & Recipes</h3>
+        <p class="text-lg opacity-80">Share your favorite Central Asian recipes and discover new dishes</p>
+      </div>
+
+      <!-- Feature Card 6 -->
+      <div class="feature-card bg-base-100 p-8 overflow-visible rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <div class="feature-icon text-5xl mb-4">🌟</div>
+        <h3 class="text-2xl font-bold mb-3">Welcoming Space</h3>
+        <p class="text-lg opacity-80">A safe, inclusive environment where everyone is welcomed and valued</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .community-features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(188, 163, 113, 0.5), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .community-features-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, rgba(188, 163, 113, 0.5), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(188, 163, 113, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .feature-card:hover::before {
+    left: 100%;
+  }
+
+  .feature-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.2) rotate(5deg);
+  }
+</style>
