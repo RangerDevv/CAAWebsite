@@ -12,12 +12,37 @@ import JoinServer from '../components/joinServer.astro';
 ---
 
 <Layout>
-	<Header />
-	<Body1 />
-	<Body3 />
-	<News />
-	<Donate />
-	<History />
-	<Stats />
-	<JoinServer />
+	<section id="home">
+		<Header />
+	</section>
+	<section id="about">
+		<Body1 />
+	</section>
+	<section id="features">
+		<Body3 />
+	</section>
+	<section id="news">
+		<News />
+	</section>
+	<!-- <section id="donate">
+		<Donate />
+	</section> -->
+	<section id="testimonials">
+		<History />
+	</section>
+	<section id="stats">
+		<Stats />
+	</section>
+	<section id="join">
+		<JoinServer />
+	</section>
 </Layout>
+
+<style>
+
+	section {
+		scroll-margin-top: 80px;
+		width: 100%;
+	}
+
+</style>
