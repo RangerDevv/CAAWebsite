@@ -67,12 +67,30 @@ const articles = data.articles || [];
   }
 
   .news-card {
+    position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: var(--caa-surface);
     border: 1px solid var(--caa-border);
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
+  }
+
+  .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.1), transparent);
+    transition: left 0.5s;
+    pointer-events: none;
+  }
+
+  .news-card:hover::before {
+    left: 100%;
   }
 
   .news-card:hover {

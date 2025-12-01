@@ -97,6 +97,7 @@
   }
 
   .donate-card {
+    position: relative;
     background: var(--caa-surface);
     border: 1px solid var(--caa-border);
     border-radius: 1.25rem;
@@ -106,6 +107,46 @@
     box-shadow: 0 4px 18px -2px rgba(0,0,0,.5);
     display: flex;
     flex-direction: column;
+  }
+
+  .donate-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--caa-accent), #818cf8, var(--caa-accent));
+    background-size: 300% 300%;
+    border-radius: 1.25rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s ease;
+    animation: gradient-border 3s ease infinite;
+  }
+
+  .donate-card:hover::after {
+    opacity: 0.6;
+  }
+
+  .donate-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--caa-accent), #818cf8, var(--caa-accent));
+    background-size: 300% 300%;
+    border-radius: 1.25rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s ease;
+    animation: gradient-border 3s ease infinite;
+  }
+
+  .donate-card:hover::after {
+    opacity: 0.6;
   }
 
   .donate-card:hover {
