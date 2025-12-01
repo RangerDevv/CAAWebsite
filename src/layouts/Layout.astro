@@ -10,8 +10,8 @@ const sections = [
 	{ name: "Home", icon: "🏠", hash: "#home" },
 	{ name: "About Us", icon: "👥", hash: "#about" },
 	{ name: "What We Offer", icon: "✨", hash: "#features" },
-	{ name: "Community Stories", icon: "💬", hash: "#testimonials" },
 	{ name: "Latest News", icon: "📰", hash: "#news" },
+	{ name: "Community Stories", icon: "💬", hash: "#testimonials" },
 	{ name: "Join Server", icon: "🎉", hash: "#join" }
 ];
 
@@ -59,6 +59,10 @@ const socialLinks = [
 	</head>
 	<body>
 			<LoadingScreen />
+			
+			<!-- Scroll progress indicator -->
+			<div id="scroll-progress" class="scroll-progress"></div>
+			
 			<div id="cursor-dot" class="cursor-dot"></div>
 			<div id="cursor-ring" class="cursor-ring"></div>
 			
@@ -68,7 +72,7 @@ const socialLinks = [
 			<div class="drawer-content flex flex-col items-center justify-center">
 				<!-- Page content here -->
 				<!-- Mobile navbar toggle -->
-				<label for="my-drawer-3" aria-label="Open navigation" class="lg:hidden fixed top-4 left-4 z-50 btn btn-ghost bg-base-200/80 backdrop-blur-md px-3 py-2 rounded-md shadow">
+				<label for="my-drawer-3" aria-label="Open navigation" class=" lg:hidden fixed top-4 left-4 z-50 btn btn-ghost bg-base-200/80 backdrop-blur-md px-3 py-2 rounded-md shadow">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
 					</svg>
@@ -297,5 +301,37 @@ const socialLinks = [
 		.cursor-ring {
 			display: none;
 		}
+	}
+
+	/* Scroll progress indicator */
+	.scroll-progress {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 3px;
+		width: 0%;
+		background: linear-gradient(90deg, var(--caa-accent), var(--caa-accent-hover), #818cf8);
+		z-index: 9999;
+		transition: width 0.1s ease;
+		box-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+	}
+
+	/* Enhanced card animations */
+	@keyframes gradient-border {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
+	/* Floating badge animation */
+	@keyframes float-badge {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-5px); }
+	}
+
+	/* Shine effect */
+	@keyframes shine {
+		0% { left: -100%; }
+		100% { left: 100%; }
 	}
 </style>
